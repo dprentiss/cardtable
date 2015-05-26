@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="Card Table">
+		<Require feature="rpc" />
+		<Require feature="views" />
+		<Require feature="locked-domain" />
+	</ModulePrefs>
+	<Content type="html"><![CDATA[     
+
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://www.googledrive.com/host/0B0ABFt4iRP9HbTE4R2M2V054d1E"></script>
+  <link rel="stylesheet" href="https://www.googledrive.com/host/0B0ABFt4iRP9HOVFSQ2FyaHJxb00"></link>
+</head>
+<body>
+<body>
+  <ul id="menu">
+    <li><button onclick=newCardHandler()>Add card</button></li>
+  </ul>
+  <div id="periodCards">
+  </div>
+</div>
+<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+
+<script>
+function init() {
+  // When API is ready...                                                         
+  gapi.hangout.onApiReady.add(
+      function(eventObj) {
+        if (eventObj.isApiReady) {
+        }
+      });
+}
+
+// Wait for gadget to load.                                                       
+gadgets.util.registerOnLoadHandler(init);
+</script>
+</body>
+]]>
+</Content>
+</Module>
+
