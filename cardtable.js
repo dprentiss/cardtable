@@ -1,12 +1,16 @@
 $(document).ready(function() {
-    $('#periodCards').disableSelection().sortable({revert: 100});
+    $('#periodCardRow').disableSelection().sortable({revert: 100});
 });
 
-var newCardHandler = function() {
+var newPeriodHandler = function() {
     this.numCards = (this.numCards || 0) + 1;
-    $newCard = $("<div>", {class: "card" });
-    $newCard.append("<h1>" + numCards + "</h1>");
-    $("#periodCards").append($newCard);
+    newPeriod = $("<div>", {class: "periodColumn"});
+    newPeriod.disableSelection().sortable({revert: 100});
+    newCard = $("<div>", {class: "card"});
+    newCard.append("<h1>" + numCards + "</h1>");
+    newCard.append("<button>Add Event</button>");
+    newPeriod.append(newCard);
+    $("#periodCardRow").append(newPeriod);
 }
 
 var CardGame = function() {
