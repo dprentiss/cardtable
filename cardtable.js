@@ -8,10 +8,21 @@ var newPeriodHandler = function() {
   newPeriod.disableSelection().sortable({revert: 100});
   newCard = $("<div>", {class: "card"});
   newCard.append("<h1>" + numCards + "</h1>");
-  newCard.append("<button>Add Event</button>");
+  newCard.append("<button onclick=newEventCardHandler(this)>Add Event</button>");
   newPeriod.append(newCard);
   $("#periodCardRow").append(newPeriod);
 }
+
+var newEventCardHandler = function(button) {
+  this.numCards = (this.numCards || 0) + 1;
+  newEvent = $("<div>", {class: "eventStack"});
+  newEvent.disableSelection().sortable({revert: 100});
+  newCard = $("<div>", {class: "card event"});
+  newCard.append("<h1>" + numCards + "</h1>");
+  newCard.append("<button>Add Scene</button>");
+  newEvent.append(newCard);
+  $(button).closest('.periodColumn').append(newEvent);
+} 
 
 var CardGame = function() {
   this.createdDate = new Date();
