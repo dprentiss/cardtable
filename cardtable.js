@@ -1,28 +1,30 @@
+"use strict";
+
 $(document).ready(function() {
   $('#periodCardRow').disableSelection().sortable({revert: 100});
 });
 
 var newPeriodHandler = function() {
-  this.numCards = (this.numCards || 0) + 1;
-  newPeriod = $("<div>", {class: "periodColumn"});
+  var numCards = (typeof(numCards) === "undefined" ? 0 : numCards + 1);
+  var newPeriod = $("<div>", {class: "periodColumn"});
   newPeriod.disableSelection().sortable({revert: 100});
-  newCard = $("<div>", {class: "card"});
+  var newCard = $("<div>", {class: "card"});
   newCard.append("<h1>" + numCards + "</h1>");
   newCard.append("<button onclick=newEventCardHandler(this)>Add Event</button>");
   newPeriod.append(newCard);
   $("#periodCardRow").append(newPeriod);
-}
+};
 
 var newEventCardHandler = function(button) {
-  this.numCards = (this.numCards || 0) + 1;
-  newEvent = $("<div>", {class: "eventStack"});
+  var numCards = typeof(numCards) === "undefined" ? 0 : numCards + 1;
+  var newEvent = $("<div>", {class: "eventStack"});
   newEvent.disableSelection().sortable({revert: 100});
-  newCard = $("<div>", {class: "card event"});
+  var newCard = $("<div>", {class: "card event"});
   newCard.append("<h1>" + numCards + "</h1>");
   newCard.append("<button>Add Scene</button>");
   newEvent.append(newCard);
   $(button).closest('.periodColumn').append(newEvent);
-} 
+};
 
 var CardGame = function() {
   this.createdDate = new Date();
