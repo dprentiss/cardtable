@@ -18,11 +18,10 @@
 <body>
 <body>
   <ul id="menu">
-    <li><button onclick=newCardHandler()>Add card</button></li>
+    <li><button onclick=newPeriodHandler()>Add Period</button></li>
   </ul>
-  <div id="periodCards">
-  </div>
-</div>
+  <div id="periodCardRow"></div>
+  
 <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
 <script>
