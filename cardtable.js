@@ -20,16 +20,16 @@ var newEventCardHandler = function (button) {
     newCard.append("<button onclick=newSceneHandler(this)>Add Scene</button>");
     newEvent.append(newCard);
     $(button).closest('.periodColumn').append(newEvent);
-};;
+};
 
 var newSceneHandler = function (button) {
     var parentCard = $(button).closest('.eventStack');
     var sceneNum = parentCard.children().length;
     var newCard = $("<div>", {class: "card scene"});
-    var cardSpacing = 10;
+    var cardSpacing = 5;
     var scenesOriginLeft = 20;
-    var scenesOriginTop = 40;
+    var scenesOriginTop = 75;
     var cardPosition = {'top': scenesOriginTop + sceneNum * -cardSpacing, 'left': scenesOriginLeft + sceneNum * cardSpacing, 'z-index': -sceneNum};
     newCard.css(cardPosition);
     parentCard.append(newCard);
-};;
+};

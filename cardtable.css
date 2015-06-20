@@ -6,7 +6,6 @@ body {
     font-family: Verdana, Arial, sans-serif;
     background-color: #010101;
     margin: 0;
-    overflow: hidden;
 }
 
 #menu {
@@ -18,8 +17,8 @@ body {
 #periodCardRow {
     margin: 0;
     padding: 0; 
-    width: auto;
     height: 225px;
+    min-width: 3000px;
     position: relative;
     left: 20%;
     float: left;
@@ -33,9 +32,8 @@ body {
 
 .eventStack {
     position: relative;
-    width: 225px;
-    height: 225px;
     float: left;
+    height: auto;
 }
 
 .card {
@@ -45,7 +43,7 @@ body {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
     border-style: solid;
-    border-color: rgba(0, 0, 0, 0.25);
+    border-color: rgba(0, 0, 0, 0.05);
     border-width: 1px;
     margin: auto;
 }
@@ -53,9 +51,8 @@ body {
 .card.event {
     width: 200px;
     height: 125px;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .card.scene {
     position: absolute;
-    z-index: -1;
