@@ -29,7 +29,7 @@ var newSceneHandler = function (button) {
     var cardSpacing = 5;
     var scenesOriginLeft = 20;
     var scenesOriginTop = 75;
-    var cardPosition = {'top': scenesOriginTop + sceneNum * -cardSpacing, 'left': scenesOriginLeft + sceneNum * cardSpacing, 'z-index': -sceneNum};
+    var cardPosition = {top: scenesOriginTop + sceneNum * -cardSpacing, left: scenesOriginLeft + sceneNum * cardSpacing, 'z-index': -sceneNum};
     newCard.css(cardPosition);
     parentCard.append(newCard);
 };
