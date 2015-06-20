@@ -18,10 +18,11 @@ body {
 #periodCardRow {
     margin: 0;
     padding: 0; 
-    //width: 8000px;
-    //height: 200px;
+    width: auto;
+    height: 225px;
     position: relative;
     left: 20%;
+    float: left;
 }
 
 .periodColumn {
@@ -31,6 +32,7 @@ body {
 }
 
 .eventStack {
+    position: relative;
     width: 225px;
     height: 225px;
     float: left;
@@ -51,4 +53,9 @@ body {
 .card.event {
     width: 200px;
     height: 125px;
+    margin-top: 50px;
 }
+
+.card.scene {
+    position: absolute;
+    z-index: -1;
