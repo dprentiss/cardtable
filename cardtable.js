@@ -26,8 +26,10 @@ var newSceneHandler = function (button) {
     var parentCard = $(button).closest('.eventStack');
     var sceneNum = parentCard.children().length;
     var newCard = $("<div>", {class: "card scene"});
-    var cardSpacing = 20;
-    var cardPosition = {'top': sceneNum * cardSpacing, 'left': sceneNum * cardSpacing, 'z-index': -sceneNum};
+    var cardSpacing = 10;
+    var scenesOriginLeft = 20;
+    var scenesOriginTop = 40;
+    var cardPosition = {'top': scenesOriginTop + sceneNum * -cardSpacing, 'left': scenesOriginLeft + sceneNum * cardSpacing, 'z-index': -sceneNum};
     newCard.css(cardPosition);
     parentCard.append(newCard);
 };;
