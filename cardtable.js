@@ -4,6 +4,36 @@ $(document).ready(function () {
     $('#periodCardRow').disableSelection().sortable({revert: 100});
 });
 
+let slide = {
+    create: function () { 
+	var newSlide = Object.create(slide);
+	newSlide.periods = [];
+	return newSlide;
+    	},
+    addPeriod: function () {
+	this.periods.push(period.create())
+	}
+};
+
+let period = {
+    create: function () {
+	var newPeriod = Object.create(period);
+	newPeriod.events = [];
+	return newPeriod;
+        },
+    addEvent: function () {
+	this.events.push(card.create())
+	}
+};
+
+let card = {
+    create: function () {
+        var newCard = Object.create(slide);
+	newCard.front = {};
+	return newCard;
+        }
+};
+
 var newPeriodHandler = function () {
     var newPeriod = $("<div>", {class: "periodColumn"});
     newPeriod.disableSelection().sortable({revert: 100});
