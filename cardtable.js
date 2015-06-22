@@ -1,6 +1,13 @@
 "use strict";
 
 $(document).ready(function () {
+    var currentSlide = slide.create();
+    var menuSide = $('<ul>').attr('id', 'menu');
+    $('body').append(menuSide);
+    menuSide.append('<li>');
+    var addPeriodButton = $('<button>').click({s:currentSlide}, newPeriodHandler).text('Add Period');
+    $('#menu li').append(addPeriodButton);
+    $('body').append($('<div>').attr('id', 'periodCardRow'));
     $('#periodCardRow').disableSelection().sortable({revert: 100});
 });
 
@@ -34,7 +41,8 @@ let card = {
         }
 };
 
-var newPeriodHandler = function () {
+var newPeriodHandler = function (e) {
+    e.data.s.addPeriod();
     var newPeriod = $("<div>", {class: "periodColumn"});
     newPeriod.disableSelection().sortable({revert: 100});
     var newCard = $("<div>", {class: "card"});
