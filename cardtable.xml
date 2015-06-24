@@ -13,11 +13,11 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="https://rawgit.com/dprentiss/cardtable/master/cardtable.js"></script>
+  <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
   <link rel="stylesheet" href="https://rawgit.com/dprentiss/cardtable/master/cardtable.css"></link>
 </head>
 <body>
 </body>
-<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
 <script>
 function init() {
