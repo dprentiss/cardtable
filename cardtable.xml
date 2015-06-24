@@ -16,12 +16,7 @@
   <link rel="stylesheet" href="https://rawgit.com/dprentiss/cardtable/master/cardtable.css"></link>
 </head>
 <body>
-<body>
-  <ul id="menu">
-    <li><button onclick=newPeriodHandler()>Add Period</button></li>
-  </ul>
-  <div id="periodCardRow"></div>
-  
+</body>
 <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
 <script>
