@@ -27,6 +27,7 @@ function init() {
         if (eventObj.isApiReady) {
         }
       });
+  console.log(gapi.hangout.data.getState());
 }
 
 // Wait for gadget to load.                                                       
