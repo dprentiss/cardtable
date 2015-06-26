@@ -1,15 +1,31 @@
 "use strict";
 
+var currentSlide = {};
+var localParticipant = {}
+
+var init = function() {
+    localParticipant = (gapi.hangout.getLocalParticipant());
+    gapi.hangout.data.onStateChanged.add(function(e) {
+	//console.log(e.metadata.currentSlide.lastWriter)
+    });
+}
+
 $(document).ready(function () {
     var currentSlide = slide.create();
-    var menuSide = $('<ul>').attr('id', 'menu');
-    $('body').append(menuSide);
-    menuSide.append('<li>');
+    var mainMenu = $('<ul>').attr('id', 'mainMenu');
+    $('body').append(mainMenu);
     var addPeriodButton = $('<button>').click({s:currentSlide}, newPeriodHandler).text('Add Period');
-    $('#menu li').append(addPeriodButton);
+    mainMenu.append($('<li>').append(addPeriodButton));
+    var newSlideButton = $('<button>').click(newSlideHandler).text('New Slide');
+    mainMenu.append($('<li>').append(newSlideButton));
     $('body').append($('<div>').attr('id', 'periodCardRow'));
     $('#periodCardRow').disableSelection().sortable({revert: 100});
 });
+
+var newSlideHandler = function() {
+    gapi.hangout.data.setValue('currentSlide','this is a newer slide');
+    console.log(localParticipant);
+}
 
 let slide = {
     create: function () { 
