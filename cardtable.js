@@ -1,12 +1,22 @@
 "use strict";
 
 var currentSlide = {};
-var localParticipant = {}
+var currentSlideString = {};
+var localParticipant = {};
 
 var init = function() {
+
+    // set local participant
     localParticipant = (gapi.hangout.getLocalParticipant());
+
+    // listen for particpant changes
+    gapi.hangout.onParticipantsChanged.add(function(e) {
+	participantsChangedHandler(e);
+    });
+
+    // listen for changes to hangout state
     gapi.hangout.data.onStateChanged.add(function(e) {
-	//console.log(e.metadata.currentSlide.lastWriter)
+	stateChangeHandler(e);
     });
 }
 
@@ -16,42 +26,77 @@ $(document).ready(function () {
     $('body').append(mainMenu);
     var addPeriodButton = $('<button>').click({s:currentSlide}, newPeriodHandler).text('Add Period');
     mainMenu.append($('<li>').append(addPeriodButton));
-    var newSlideButton = $('<button>').click(newSlideHandler).text('New Slide');
-    mainMenu.append($('<li>').append(newSlideButton));
     $('body').append($('<div>').attr('id', 'periodCardRow'));
     $('#periodCardRow').disableSelection().sortable({revert: 100});
 });
 
-var newSlideHandler = function() {
+// handle participant changes
+var participantsChangedHandler = function(e) {
+}
+
+// handle changes to hangout state
+var stateChangeHandler = function(e) {
     gapi.hangout.data.setValue('currentSlide','this is a newer slide');
     console.log(localParticipant);
+}
+
+var updateSlide = function(e) {
+    if(currentSlideString != e.state.currentSlide) {
+    }
 }
 
 let slide = {
     create: function () { 
 	var newSlide = Object.create(slide);
+	newSlide.bigPicture = '';
 	newSlide.periods = [];
 	return newSlide;
-    	},
+    },
     addPeriod: function () {
-	this.periods.push(period.create())
-	}
+	this.periods.push(period.create());
+    }
 };
 
 let period = {
     create: function () {
 	var newPeriod = Object.create(period);
+	newPeriod.bookend = null;
+	newPeriod.description = '';
+	newPeriod.tone = 'light';
 	newPeriod.events = [];
 	return newPeriod;
-        },
-    addEvent: function () {
-	this.events.push(card.create())
-	}
+    },
+    addEventStack: function () {
+	this.events.push(eventStack.create());
+    }
+};
+
+let eventStack = {
+    create: function () {
+	var newEventStack = Object.create(eventStack);
+	newEventStack.description = '';
+	newEventStack.tone = 'light';
+	newEventStack.scenes = [];
+	return newEventStack;
+    },
+    addScene: function () {
+	this.scenes.push(card.create());
+    }
+};
+
+let scene = {
+    create: function () {
+        var newScene = Object.create(scene);
+	newScene.description = '';
+	newScene.tone = 'light';
+	return newScene;
+        }
 };
 
 let card = {
-    create: function () {
-        var newCard = Object.create(slide);
+    create: function (type) {
+        var newCard = Object.create(card);
+	newCard.type = type;
 	newCard.front = {};
 	return newCard;
         }
